@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Reflection;
 using HarmonyLib;
 using RimWorld;
@@ -21,22 +22,17 @@ namespace NoBreaksDuringRaids
     {
         static bool Postfix(bool __result, Pawn __instance)
         {
-            // FIXME: Change this if to check only for raiders ant make it more readable
-            if (
-                __instance.Map is null ||
-                !__instance.RaceProps.Humanlike || 
-                __instance.Map.mapPawns.AllPawnsSpawned
-                    .FindAll(p => p.RaceProps.Humanlike)
-                    .FindAll(p => !p.IsColonist)
-                    .FindAll(p => p.Faction.HostileTo(Faction.OfPlayer))
-                    .Count == 0) 
+            // If pawn is not spawned in the map we don't do anything
+            if (__instance.Map is null)
                 return __result;
             
-            if (__instance.MentalState != null)
-            {
-                __instance.MentalState.RecoverFromState();
-                Log.Message($"{__instance.Name} has recovered from it's mental state");
-            }
+            var enemiesInMap = __instance.Map.mapPawns.AllPawnsSpawned
+                .Any(p => p.RaceProps.Humanlike && p.Faction.HostileTo(Faction.OfPlayer));
+            if (!enemiesInMap)
+                return __result;
+            
+            // If the pawn is in a mental break snap them out of it
+            __instance.MentalState?.RecoverFromState();
             return false;
         }
     }
