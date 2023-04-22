@@ -34,6 +34,7 @@
     <ItemGroup>
         <Reference Include="0Harmony, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\Lib.Harmony.2.3.0-alpha.5\lib\net472\0Harmony.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
           <HintPath>/run/media/marco/Marco/Jogos/Steam/steamapps/common/RimWorld/RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
@@ -41,30 +42,39 @@
         </Reference>
         <Reference Include="Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
           <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="Mono.Cecil.Mdb, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
           <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="Mono.Cecil.Pdb, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
           <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="Mono.Cecil.Rocks, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
           <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="MonoMod.Backports, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\MonoModReorg.Backports.23.3.22.1\lib\net452\MonoMod.Backports.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="MonoMod.Core, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\MonoModReorg.Core.23.3.22.1\lib\net452\MonoMod.Core.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="MonoMod.Iced, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\MonoModReorg.Core.23.3.22.1\lib\net452\MonoMod.Iced.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="MonoMod.ILHelpers, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\MonoModReorg.ILHelpers.23.3.22.1\lib\net452\MonoMod.ILHelpers.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="MonoMod.Utils, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
           <HintPath>..\packages\MonoModReorg.Utils.23.3.22.1\lib\net452\MonoMod.Utils.dll</HintPath>
+          <Private>False</Private>
         </Reference>
         <Reference Include="mscorlib" />
         <Reference Include="System" />
