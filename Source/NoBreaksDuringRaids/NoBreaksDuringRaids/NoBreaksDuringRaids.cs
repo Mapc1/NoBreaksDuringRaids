@@ -1,5 +1,6 @@
 using System.Reflection;
 using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace NoBreaksDuringRaids
@@ -21,7 +22,14 @@ namespace NoBreaksDuringRaids
         static bool Postfix(bool __result, Pawn __instance)
         {
             // FIXME: Change this if to check only for raiders ant make it more readable
-            if (__instance.Map is null || !__instance.RaceProps.Humanlike || __instance.Map.mapPawns.AllPawnsSpawned.FindAll(p => p.RaceProps.Humanlike).FindAll(p => !p.IsColonist).Count == 0) 
+            if (
+                __instance.Map is null ||
+                !__instance.RaceProps.Humanlike || 
+                __instance.Map.mapPawns.AllPawnsSpawned
+                    .FindAll(p => p.RaceProps.Humanlike)
+                    .FindAll(p => !p.IsColonist)
+                    .FindAll(p => p.Faction.HostileTo(Faction.OfPlayer))
+                    .Count == 0) 
                 return __result;
             
             if (__instance.MentalState != null)
