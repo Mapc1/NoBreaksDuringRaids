@@ -1,0 +1,5 @@
+**/Assemblies/
+**/.idea/
+**/obj/
+**/packages/
+**/*.user

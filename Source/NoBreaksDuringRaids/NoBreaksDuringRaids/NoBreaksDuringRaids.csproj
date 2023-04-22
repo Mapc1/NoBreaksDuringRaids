@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{741B9DDF-746A-42B8-A92C-50E67C7C5DDB}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>NoBreaksDuringRaids</RootNamespace>
+        <AssemblyName>NoBreaksDuringRaids</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>../../../Assemblies</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>../../../Assemblies</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="0Harmony, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\Lib.Harmony.2.3.0-alpha.5\lib\net472\0Harmony.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>/run/media/marco/Marco/Jogos/Steam/steamapps/common/RimWorld/RimWorldWin64_Data/Managed/Assembly-CSharp.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+          <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Mdb, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+          <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Pdb, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+          <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Cecil.Rocks, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+          <HintPath>..\packages\Mono.Cecil.0.11.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.Backports, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\MonoModReorg.Backports.23.3.22.1\lib\net452\MonoMod.Backports.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.Core, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\MonoModReorg.Core.23.3.22.1\lib\net452\MonoMod.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.Iced, Version=1.17.0.0, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\MonoModReorg.Core.23.3.22.1\lib\net452\MonoMod.Iced.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.ILHelpers, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\MonoModReorg.ILHelpers.23.3.22.1\lib\net452\MonoMod.ILHelpers.dll</HintPath>
+        </Reference>
+        <Reference Include="MonoMod.Utils, Version=23.3.22.1, Culture=neutral, processorArchitecture=MSIL">
+          <HintPath>..\packages\MonoModReorg.Utils.23.3.22.1\lib\net452\MonoMod.Utils.dll</HintPath>
+        </Reference>
+        <Reference Include="mscorlib" />
+        <Reference Include="System" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>/run/media/marco/Marco/Jogos/Steam/steamapps/common/RimWorld/RimWorldWin64_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="NoBreaksDuringRaids.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
