@@ -3,6 +3,7 @@ using System.Reflection;
 using HarmonyLib;
 using RimWorld;
 using Verse;
+using Verse.AI;
 
 namespace NoBreaksDuringRaids
 {
@@ -36,4 +37,20 @@ namespace NoBreaksDuringRaids
             return false;
         }
     }
+
+    [HarmonyPatch(typeof(MentalBreaker))]
+    [HarmonyPatch(nameof(MentalBreaker.CanDoRandomMentalBreaks), MethodType.Getter)]
+    public static class MentalBreakerCanDoRandomMentalBreaksPatch
+    {
+        static bool Postfix(bool __result, Thing ___pawn)
+        {
+            if (___pawn.Map is null)
+                return __result;
+            
+            var enemiesInMap = ___pawn.Map.mapPawns.AllPawnsSpawned
+                .Any(p => p.RaceProps.Humanlike && p.Faction.HostileTo(Faction.OfPlayer));
+            return !enemiesInMap && __result;
+        }
+    }
+    
 }
