@@ -17,38 +17,22 @@ namespace NoBreaksDuringRaids
         }
     }
 
-    [HarmonyPatch(typeof(Pawn))]
-    [HarmonyPatch(nameof(Pawn.InMentalState), MethodType.Getter)]
-    public static class PawnInMentalStatePatch
-    {
-        static bool Postfix(bool __result, Pawn __instance)
-        {
-            // If pawn is not spawned in the map we don't do anything
-            if (__instance.Map is null)
-                return __result;
-            
-            var enemiesInMap = __instance.Map.mapPawns.AllPawnsSpawned
-                .Any(p => p.RaceProps.Humanlike && p.Faction.HostileTo(Faction.OfPlayer));
-            if (!enemiesInMap)
-                return __result;
-            
-            // If the pawn is in a mental break snap them out of it
-            __instance.MentalState?.RecoverFromState();
-            return false;
-        }
-    }
-
     [HarmonyPatch(typeof(MentalBreaker))]
     [HarmonyPatch(nameof(MentalBreaker.CanDoRandomMentalBreaks), MethodType.Getter)]
-    public static class MentalBreakerCanDoRandomMentalBreaksPatch
+    public static class MentalBreaker_CanDoRandomMentalBreaks_Patch
     {
-        static bool Postfix(bool __result, Thing ___pawn)
+        static bool Postfix(bool __result, Pawn ___pawn)
         {
-            if (___pawn.Map is null)
+            if (!___pawn.Spawned || !___pawn.RaceProps.Humanlike)
                 return __result;
             
-            var enemiesInMap = ___pawn.Map.mapPawns.AllPawnsSpawned
-                .Any(p => p.RaceProps.Humanlike && p.Faction.HostileTo(Faction.OfPlayer));
+            // If there are any pawns from an enemy faction on the same map then pawns cannot enter mental breaks
+            // TODO: Still not sure if pawns should end their mental breaks when an enemy enters the map
+            var factionsInMap = ___pawn.Map.mapPawns.AllPawnsSpawned
+                    .FindAll(p => p.RaceProps.Humanlike)
+                    .Select(p => p.Faction);
+            var enemiesInMap = factionsInMap.Any(f => f.HostileTo(___pawn.Faction));
+            
             return !enemiesInMap && __result;
         }
     }
