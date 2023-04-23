@@ -6,3 +6,7 @@ This obviously breaks balancing and is not a mod meant for a QoL only modlist. T
 
 Stuff im still undecided on:
   * Should pawns exit mental breaks when an enemy enters the map?
+
+## Installation
+
+To install this mod just extract the zip inside the mods folder located wherever you have the game installed.
