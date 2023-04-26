@@ -10,6 +10,8 @@
 
     <description>This is a mod for Rimworld that disables the ability for pawns to get mental breaks when an enemy faction is on the map. This prevents pawns from wandering off into the middle of a gun fight because they ate without a table.
 This obviously breaks balancing and is not a mod meant for a QoL only modlist. This was just a project I set out to do to get to know the inner workings of the game and is, hopefully, the first of many.
+
+&lt;size=18&gt;&lt;b&gt;Note:&lt;/b&gt;&lt;/size&gt; If you wish only for your pawns to not break when they, themselves are raiding another settlement or neutral site, you can change it in the mod settings.
 </description>
 
     <modDependencies>
