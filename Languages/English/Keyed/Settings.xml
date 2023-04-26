@@ -3,4 +3,5 @@
     <NoBreaksDuringRaids>No Breaks During Raids</NoBreaksDuringRaids>
     <NBDR.EnableHome>Enable mod in home settlements</NBDR.EnableHome>
     <NBDR.PawnsNeverBreakOutside>Pawns never break outside home settlements (does not affect caravans)</NBDR.PawnsNeverBreakOutside>
+    <NBDR.EnemyPawnsAffected>Enemy pawns are affected by this mod</NBDR.EnemyPawnsAffected>
 </LanguageData>

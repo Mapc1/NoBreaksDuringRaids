@@ -27,6 +27,7 @@ namespace NoBreaksDuringRaids
             list.Begin(inRect);
             list.CheckboxLabeled("NBDR.EnableHome".Translate(), ref Settings.EnableHome);
             list.CheckboxLabeled("NBDR.PawnsNeverBreakOutside".Translate(), ref Settings.PawnsNeverBreakOutside);
+            list.CheckboxLabeled("NBDR.EnemyPawnsAffected".Translate(), ref Settings.EnemyPawnsAffected);
             list.End();
             Settings.Write();
         }
@@ -37,12 +38,14 @@ namespace NoBreaksDuringRaids
     {
         public bool EnableHome = true;
         public bool PawnsNeverBreakOutside = false;
+        public bool EnemyPawnsAffected = false;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref EnableHome, nameof(EnableHome), true);
             Scribe_Values.Look(ref PawnsNeverBreakOutside, nameof(PawnsNeverBreakOutside), false);
+            Scribe_Values.Look(ref EnemyPawnsAffected, nameof(EnemyPawnsAffected), false);
         }
     }
 }

@@ -12,12 +12,10 @@ namespace NoBreaksDuringRaids
     {
         public static bool Postfix(bool __result, Pawn ___pawn)
         {
-            if (
-                !___pawn.Spawned || 
-                !___pawn.RaceProps.Humanlike || 
-                ___pawn.Downed || 
-                !___pawn.Faction.IsPlayer
-                )
+            if (!___pawn.Spawned || !___pawn.RaceProps.Humanlike || ___pawn.Downed)
+                return __result;
+            
+            if (!NoBreaksDuringRaidsMod.Settings.EnemyPawnsAffected && !___pawn.Faction.IsPlayer)
                 return __result;
             
             // If the ParentFaction is null then we are at a neutral map tile so we are not home
