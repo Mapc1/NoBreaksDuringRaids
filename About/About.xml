@@ -8,7 +8,9 @@
         <li>1.4</li>
     </supportedVersions>
 
-    <description>Do you hate when John goes on a sad wander because he ate without a table while your entire base burns to ashes? Well this mod removes that so your pawns focus on the problems that really matter.</description>
+    <description>This is a mod for Rimworld that disables the ability for pawns to get mental breaks when an enemy faction is on the map. This prevents pawns from wandering off into the middle of a gun fight because they ate without a table.
+This obviously breaks balancing and is not a mod meant for a QoL only modlist. This was just a project I set out to do to get to know the inner workings of the game and is, hopefully, the first of many.
+</description>
 
     <modDependencies>
         <li>
