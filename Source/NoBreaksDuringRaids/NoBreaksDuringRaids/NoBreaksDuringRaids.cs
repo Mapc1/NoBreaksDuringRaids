@@ -10,16 +10,14 @@ namespace NoBreaksDuringRaids
 {
     public class NoBreaksDuringRaidsMod : Mod
     {
-        public static Harmony Harm;
         public static NoBreaksDuringRaids_Settings Settings;
-        
-        
+
         public NoBreaksDuringRaidsMod(ModContentPack content) : base(content)
         {
-            Harm = new Harmony("Mapc1.NoBreaksDuringRaidsMod");
+            var harmony = new Harmony("Mapc1.NoBreaksDuringRaidsMod");
             Settings = GetSettings<NoBreaksDuringRaids_Settings>();
             
-            Harm.PatchAll(Assembly.GetExecutingAssembly());
+            harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public override string SettingsCategory() => "NoBreaksDuringRaids".Translate();
