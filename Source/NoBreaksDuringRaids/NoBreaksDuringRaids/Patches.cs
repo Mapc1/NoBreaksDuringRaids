@@ -14,7 +14,10 @@ namespace NoBreaksDuringRaids
         {
             if (!___pawn.Spawned || !___pawn.RaceProps.Humanlike || ___pawn.Downed)
                 return __result;
-
+            
+            if (!NoBreaksDuringRaidsMod.Settings.EnemyPawnsAffected && !___pawn.Faction.IsPlayer)
+                return __result;
+            
             // If the ParentFaction is null then we are at a neutral map tile so we are not home
             bool inHomeTile = ___pawn.Map.ParentFaction?.IsPlayer ?? false;
             
