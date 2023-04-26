@@ -2,6 +2,6 @@
 <LanguageData>
     <NoBreaksDuringRaids>No Breaks During Raids</NoBreaksDuringRaids>
     <NBDR.EnableHome>Enable mod in home settlements</NBDR.EnableHome>
-    <NBDR.PawnsNeverBreakOutside>Player pawns never break when raiding (even when there are no standing enemies left on the map)</NBDR.PawnsNeverBreakOutside>
+    <NBDR.PawnsNeverBreakOutside>Pawns never break when raiding (even when there are no standing enemies left on the map)</NBDR.PawnsNeverBreakOutside>
     <NBDR.EnemyPawnsAffected>Enemy pawns are affected by this mod</NBDR.EnemyPawnsAffected>
 </LanguageData>
