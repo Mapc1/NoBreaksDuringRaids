@@ -88,6 +88,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="NoBreaksDuringRaids.cs" />
+        <Compile Include="Patches.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
